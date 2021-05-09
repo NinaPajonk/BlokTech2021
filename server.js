@@ -5,7 +5,6 @@ const port = 3000;
 const path = require('path');
 const dogs = ['David', 'Inju', 'Nina', 'Anna']
 
-
 console.log('hello world')
 
 // statische pagina's
@@ -15,19 +14,19 @@ app.use(express.static('/public/'))
 app.set('views', 'view')
 app.set('view engine', 'ejs')
 
-// routes
+// routes (dynamische pagina's)
 app.get('/', function(req, res) {
 res.render('login', {hondenNamen: dogs})
 
 })
 app.get('/register', function(req, res) {
-    res.sendFile(path.join(__dirname, '/public/index.html'))
+    res.render('register')
     
     })
-
-app.get('*', function(req, res){
-    res.sendFile(path.join(__dirname, '/public/404.html'))
-    })
+// handling error 404 statichs
+// app.get('*', function(req, res){
+//     res.sendFile(path.join(__dirname, '/public/404.html'))
+//     })
 
 //Server check
 app.listen(port, () => {

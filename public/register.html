@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Registreren</title>
+</head>
+<body>
+     
+<div class="containerForm">
+    <div class="header">
+        <h1> Account aan maken</h1>
+    </div>
+    <form class="form">
+        <div class="formControl">
+            <label for="username" name="username">Gebruikersnaam</label>
+            <input id="userName" type="text" name="username">
+            <small>error message </small>
+        </div>
+        <div class="formControl">
+            <label for="email" name="email">E-mail</label>
+            <input id="userEmail" type="email" name="email">
+            <small></small>
+        </div>
+        <div class="formControl">
+            <label for="password" name="password">Wachtwoord</label>
+            <input id="userPwd" type="password" name="password">
+            <small></small>
+        </div>
+        <div class="formControl">
+            <label for="confirmPassword" name="confirmPassword">Verifieer Wachtwoord</label>
+            <input id="userConfPwd" type="password" name="confirmPassword">
+            <small></small>
+        </div>
+        <div class="formControl">
+<button>Registreren</button>
+        </div>
+    </form>
+</div>
+<script src="/server.js"></script>
+</body>
+</html>
