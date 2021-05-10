@@ -4,7 +4,59 @@
     <%- include('./components/head') %>
     <title>Register</title>
 </head>
-<body>
-    <p> Register </p>
+<b<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registreren</title>
+    </head>
+    
+    <body>
+    
+        <div class="containerForm">
+            <header>
+                <h1>Account aanmaken</h1>
+            </header>
+            <main>
+                <form id="register" action="feedback.html" method="GET">
+                    <fieldset class="formControl">
+                        <legend>Vul in je gebruikersnaam</legend>
+                        <label for="username">Gebruikersnaam</label>
+                        <input pattern="[A-zÀ-ž- ]+" id="username" title="gebruik geen symbolen en/of cijfers" type="text"
+                            name="username" placeholder="Jan Jansen" required>
+                    </fieldset>
+    
+                    <fieldset class="formControl">
+                        <legend>Vul in je e-mailadres</legend>
+                        <label for="email">E-mail</label>
+                        <input id="email" title="e-mailadres is onjuist" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="email" name="email" placeholder="janjansen@mail.com" required>
+                    </fieldset>
+    
+                    <fieldset class="formControl">
+                        <legend>Vul in je wachtwoord</legend>
+                        <label for="password">Wachtwoord</label>
+                        <input id="password" type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="8 of meer karakters bestaande uit ten minste één cijfer, en één hoofdletter en één kleine letter" placeholder="........" required>
+                    </fieldset>
+    
+                    <fieldset class="formControl">
+                        <legend>Vul nogmaals je wachtwoord in</legend>
+                        <label for="confirmPassword">Verifieer Wachtwoord</label>
+                        <input id="confirmPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="8 of meer karakters bestaande uit ten minste één cijfer, en één hoofdletter en één kleine letter" type="password" name="confirmPassword" placeholder="........" required>
+                    </fieldset>
+    
+                    <div class="formControl">
+                        <input type="submit" value="registreren" form="register">
+    
+                    </div>
+                </form>
+        </div>
+        </main>
+        <footer></footer>
+    
+    </body>
+    
+    </html>
 </body>
 </html>

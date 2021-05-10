@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Zoeken</title>
+</head>
+
+<body>
+
+    <div class="containerForm">
+
+        <div id="result"> </div>
+        <h1> Zoeken </h1>
+        <img src="images/dog.svg">
+
+        <form id="personalForm" action="/search" method="POST">
+
+            <fieldset class="personalForm">
+                <legend>Naar wat voor ras ben je op zoek?</legend>
+                <p> Kies een ras </p>
+                <select for="ras" id="ras" name="ras">
+                    <option>Australische labradoodle</option>
+                    <option>Beagle</option>
+                    <option>Chihuahua</option>
+                    <option>Chow Chow</option>
+                    <option>Dalmatier</option>
+                    <option>Duitse herder</option>
+                    <option>Franse Buldog</option>
+                    <option>Jackrussel</option>
+                    <option>Keeshond</option>
+                    <option>Labradoor</option>
+                    <option>Mopshond</option>
+                    <option>Poedel</option>
+                    <option>Pomeriaan</option>
+                    <option>Shiba</option>
+                    <option>Syberische husky</option>
+                    <option>Toypoedel</option>
+                    <option>Yorkshireterrier</option>
+                </select>
+            </fieldset>
+            <fieldset class="personalForm">
+                <legend>Geslacht</legend>
+                <label for="kleur">Voorkeur geslacht:</label>
+                <input type="radio" id="reutje" name="gender" value="reutje">
+                <label for="gender">Reutje</label>
+                <input type="radio" id="teefje" name="gender" value="teefje">
+                <label for="gender">teefje</label>
+                <input type="radio" id="teefje" name="gender" value="teefje">
+                <label for="gender">Geen voorkeur</label>
+            </fieldset>
+            <fieldset>
+                <legend>Voorkeur voor kleur?</legend>
+                <label for="kleur">Voorkeur kleur puppy:</label>
+                <p> <i>Meerdere opties mogelijk</i></p>
+
+                <input type="checkbox" id="kleurWit" name="kleurWit" value="wit">
+                <label for="kleurWit"> Wit</label><br>
+                <input type="checkbox" id="kleurBruin" name="kleurBruin" value="bruin">
+                <label for="kleurBruin"> Bruin</label><br>
+                <input type="checkbox" id="kleurZwart" name="kleurZwart" value="zwart">
+                <label for="kleurZwart"> Zwart</label><br>
+                <input type="checkbox" id="kleurGrijs" name="kleurGrijs" value="grijs">
+                <label for="kleurGrijs"> Grijs</label><br>
+                <input type="checkbox" id="kleurRood" name="kleurRood" value="rood">
+                <label for="kleurRood"> Rood</label>
+
+                <fieldset class="sliderPrijs">
+                    <legend> Select prijsklasse</legend>
+                    <label for="prijs">Select prijsklasse</label>
+                    <input type="range" min="250" max="3000" value="50" class="slider" id="prijs">
+                </fieldset>
+
+            </fieldset>
+            <div class="formControl">
+                <input type="submit" value="Zoeken" form="zoekForm">
+
+            </div>
+        </form>
+    </div>
+    <script src="/server.js"></script>
+</body>
+
+</html>

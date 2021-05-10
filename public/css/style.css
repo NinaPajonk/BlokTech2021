@@ -3,28 +3,73 @@ body{
    padding: 0;
    font-family: "montserrat", sans-serif;
    min-height: 100vh;
-   background-image: linear-gradient(115deg, #3ca0be, #b8e994);
+   background-image: linear-gradient(115deg, #3ca0be, #fff);
 }
-/*REGISTREREN*/
-.header{
+#home{
+    float: left;
+    width: 30px;
     padding: 10px;
-    color: #fff;
-    border-bottom: 1px solid  rgb(77, 77, 77);
-    text-align: center;
-}
-.containerForm{
-box-sizing: border-box;
-width: 600px;
-height: 520px;
-box-shadow: 8px 8px 50px rgb(77, 77, 77);
-border-radius: 15px;
-position: absolute;
-padding: 60px 30px;
-}
-.form{
-    padding: 20px 40px;
+ 
+ }
+
+
+img{
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
 }
 
+/*Zoeken*/
+
+.sliderPrijs{
+    width: 100%;
+}
+
+.slider{
+    width: 100%; 
+    height: 25px; 
+    background: #ddd;
+    opacity: 0.7; 
+    border-radius: 4px;
+}
+
+.slider:hover {
+    opacity: 1; 
+    cursor: pointer;
+  }
+/*REGISTREREN*/
+
+h1{
+    color: #fff;
+    border-bottom: 1px solid  #fff;
+    text-align: center;
+}
+
+legend{ 
+    display: none;
+    border: none;
+}
+
+fieldset{
+    border: none;
+}
+
+.containerForm{
+width: 400px;
+height: 720px;
+color: #000;
+top: 55%;
+left: 50%;
+padding: 60px 30px;
+position: absolute;
+transform: translate(-50%, -50%);
+box-sizing: border-box;
+box-shadow: 8px 8px 50px rgb(77, 77, 77);
+border-radius: 15px;
+
+}
 .formControl{
     margin-bottom: 10px;
     padding-bottom: 10px;
@@ -33,97 +78,92 @@ padding: 60px 30px;
 
 .formControl label{
     display: inline-block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
 .formControl input{
     display: block;
     width: 100%;
+    height: 40px;
     border-radius: 4px;
     border:  2px solid #fff;
+    font-size: 16px;
 }
-
-.formControl small{
-    position: absolute;
-    margin: 3px;
-visibility: hidden;
-}
-
-button{
-    background-color: #000;
-    color: #fff;
-    padding: 10px 20px;
+.formControl [type=submit]{
+    border: none;
+    outline: none;
+    height: 40px;
     width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ec5da0aa;
     border-radius: 4px;
-    cursor: pointer;
-    border: 2px solid #000;
+    color: #fff;
 }
-/* LOGIN */
+.formControl [type=submit]:hover{
+    cursor: pointer;
+    background-color: #ff07c1aa;
+}
+
+/* overview */
 
 .wrapper {
     width: 400px;
-    height: 420px;
+    height: 550px;
     color: #000;
-    top: 50%;
+    top: 60%;
     left: 50%;
-    padding: 60px 30px;
     position: absolute;
     transform: translate(-50%, -50%);
     box-sizing: border-box;
     box-shadow: 8px 8px 50px rgb(77, 77, 77);
     border-radius: 15px;
-}
-.wrapper input{
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.wrapper input[type=text],.wrapper input[type=password]{
-    border: none;
-    border-bottom: 1px solid #ddd;
-    height: 30px;
-    font-size: 16px;
-    color: rgb(77, 77, 77);
-}
-.wrapper input[type=submit]{
-    border: none;
-    outline: none;
-    height: 40px;
-    font-size: 14px;
-    font-weight: 500;
-    background-color: #ec5da0aa;
-    color: #fff;
-
-}
-.wrapper input[type=submit]:hover{
-    cursor: pointer;
-    background-color: #ff07c1aa;
-}
-
-.wrapper a{
-    font-size: 14px;
-    text-decoration: none;
-    color: #fff;  
-
-}
-.wrapper a:hover{
-color: #ff07c1aa;
-}
-
-.bottom input{
-    width: 10%;
-    float: left;
-}
-
-.wrapper h1{
-    margin: 0;
-    padding: 0;
-    font-weight: 500;
-    font-size: 22px;
-    color: #fff;
+    background-color: white;
     text-align: center;
-    margin-bottom: 20px;
 }
+
+.wrapper img{
+    width: 200px;
+}
+
+.wrapper span{
+ font-weight: 900;
+ font-size: 40px;
+ color:  #ec5da0aa;
+}
+
+#filterbut{
+    
+    right:950px;
+    bottom:550px;
+}
+
+#zoekbut{
+    position:absolute;
+    right:40px
+;
+   bottom:750px;
+}
+.dogbut{
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+
+}
+
+#likebut{
+ position:absolute;
+left:300px;
+bottom:90px;
+
+}
+
+#duslikebut{
+position: absolute;
+    right:300px;
+    bottom:90px;
+}
+
 
 /* 404 PAGE */
 .container{
@@ -158,3 +198,5 @@ color: #ff07c1aa;
         background: #ff07c1aa;
         font-weight: 900;
     }
+
+    
