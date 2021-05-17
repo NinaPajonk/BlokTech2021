@@ -5,21 +5,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Zoeken</title>
+    <title>Puppy toevoegen</title>
 </head>
 
 <body>
 
     <div class="containerForm">
 
-        <div id="result"> </div>
         <h1> Zoeken </h1>
         <img src="images/dog.svg">
 
-        <form id="personalForm" action="/search" method="POST">
-
+        <form id="personalForm" action="/add" method="POST">
             <fieldset class="personalForm">
-                <legend>Naar wat voor ras ben je op zoek?</legend>
+                <legend> </legend>
+            </fieldset>
+            <fieldset class="personalForm">
+                <legend>Wat voor ras is je puppy?</legend>
                 <p> Kies een ras </p>
                 <select for="ras" id="ras" name="ras">
                     <option>Australische labradoodle</option>
@@ -43,33 +44,31 @@
             </fieldset>
             <fieldset class="personalForm">
                 <legend>Geslacht</legend>
-                <label for="kleur">Voorkeur geslacht:</label>
+                <label for="kleur">geslacht:</label>
                 <input type="radio" id="reutje" name="gender" value="reutje">
                 <label for="gender">Reutje</label>
                 <input type="radio" id="teefje" name="gender" value="teefje">
-                <label for="gender">teefje</label>
-                <input type="radio" id="geen" name="gender" value="geen">
-                <label for="gender">Geen voorkeur</label>
             </fieldset>
             <fieldset>
-                <legend>Voorkeur voor kleur?</legend>
-                <p> <i>Meerdere opties mogelijk</i></p>
+                <legend>kleur</legend>
+                <label for="kleur"> kleur puppy:</label>
 
-                <input type="checkbox" id="kleur" name="kleur" value="wit">
-                <label for="kleur"> Wit</label><br>
-                <input type="checkbox" id="kleur" name="kleur" value="bruin">
-                <label for="kleur"> Bruin</label><br>
-                <input type="checkbox" id="kleur" name="kleur" value="zwart">
-                <label for="kleur"> Zwart</label><br>
-                <input type="checkbox" id="kleurGrijs" name="kleur" value="grijs">
-                <label for="kleur"> Grijs</label><br>
-                <input type="checkbox" id="kleurRood" name="kleur" value="rood">
-                <label for="kleur"> Rood</label>
+                <input type="checkbox" id="kleurWit" name="kleurWit" value="wit">
+                <label for="kleurWit"> Wit</label><br>
+                <input type="checkbox" id="kleurBruin" name="kleurBruin" value="bruin">
+                <label for="kleurBruin"> Bruin</label><br>
+                <input type="checkbox" id="kleurZwart" name="kleurZwart" value="zwart">
+                <label for="kleurZwart"> Zwart</label><br>
+                <input type="checkbox" id="kleurGrijs" name="kleurGrijs" value="grijs">
+                <label for="kleurGrijs"> Grijs</label><br>
+                <input type="checkbox" id="kleurRood" name="kleurRood" value="rood">
+                <label for="kleurRood"> Rood</label>
 
-                <fieldset class="sliderPrijs">
-                    <legend> Select prijsklasse</legend>
-                    <label for="prijs">Select prijsklasse</label>
-                    <input type="range" min="250" max="3000" value="50" class="slider" id="prijs">
+                <fieldset class="personalForm">
+                    <legend>Prijs puppy</legend>
+                    <label for="puppyprijs">€</label>
+                    <input type="text">
+
                 </fieldset>
 
             </fieldset>

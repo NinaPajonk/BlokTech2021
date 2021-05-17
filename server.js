@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const port = 3000;
-const path = require('path');
+const path = require('path'); 
 
 const dogs = [{
     "id" : 1,
@@ -69,13 +69,27 @@ const dogs = [{
 }
 ]
 
-console.log(dogs[4].ras)
+const html = dogs.map(dog=> {
+    return `
+<article class="dog">
+<a href="#${dog.id}">
+<p>${dog.name}</p>
+<p>${dog.gender} </p>
+<p>${dog.prijs}</p>
+</a>
+</article>`
+}).join('')
+
+console.log(dog.id)
+
 // filteren 
-let filteredDogs = []
-if (dogs.findOne({ras: req.body.ras})) {
-    result.filteredDogs.push()
-}
-console.log (filteredDogs);
+// let filteredDogs = []
+// if (dogs.findOne({ras: req.body.ras})) {
+//     // result.filteredDogs.push()
+// }
+// console.log (filteredDogs);
+
+
 
 
 
@@ -95,6 +109,12 @@ app.get('/', function(req, res) {
 res.render('overview', {hondenNamen: dogs})
 
 })
+// test
+app.get('/test', function(req, res) {
+    res.render('test', {dog: html })
+    
+    })
+
 app.get('/register', function(req, res) {
     res.render('register')
     

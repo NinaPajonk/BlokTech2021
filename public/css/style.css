@@ -17,7 +17,8 @@ img{
     width: 80px;
     margin-left: auto;
     margin-right: auto;
-    display: block;
+display:block;
+
 
 }
 
@@ -45,6 +46,7 @@ h1{
     color: #fff;
     border-bottom: 1px solid  #fff;
     text-align: center;
+    padding: 0;
 }
 
 legend{ 
@@ -132,25 +134,29 @@ border-radius: 15px;
  color:  #ec5da0aa;
 }
 
-#filterbut{
-    
-    right:950px;
-    bottom:550px;
-}
-
-#zoekbut{
-    position:absolute;
-    right:40px
-;
-   bottom:750px;
-}
 .dogbut{
     background: transparent;
     border: transparent;
     cursor: pointer;
 
 }
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: transparent;
+  }
 
+  li {
+    float: right;
+  }
+  
+  a {
+    display: block;
+    padding: 8px;
+
+  }
 #likebut{
  position:absolute;
 left:300px;
