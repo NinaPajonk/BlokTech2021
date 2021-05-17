@@ -43,18 +43,18 @@
             </fieldset>
             <fieldset class="personalForm">
                 <legend>Geslacht</legend>
-                <label for="kleur">Voorkeur geslacht:</label>
-                <input type="radio" id="reutje" name="gender" value="reutje">
+                <label for="gender">Voorkeur geslacht:</label>
+                <input type="radio" id="gender" name="gender" value="reutje">
                 <label for="gender">Reutje</label>
-                <input type="radio" id="teefje" name="gender" value="teefje">
+                <input type="radio" id="gender" name="gender" value="teefje">
                 <label for="gender">teefje</label>
-                <input type="radio" id="geen" name="gender" value="geen">
+                <input type="radio" id="gender" name="gender" value="geen">
                 <label for="gender">Geen voorkeur</label>
             </fieldset>
-            <fieldset>
+
+            <fieldset class="personalForm">
                 <legend>Voorkeur voor kleur?</legend>
                 <p> <i>Meerdere opties mogelijk</i></p>
-
                 <input type="checkbox" id="kleur" name="kleur" value="wit">
                 <label for="kleur"> Wit</label><br>
                 <input type="checkbox" id="kleur" name="kleur" value="bruin">
@@ -66,17 +66,25 @@
                 <input type="checkbox" id="kleurRood" name="kleur" value="rood">
                 <label for="kleur"> Rood</label>
 
-                <fieldset class="sliderPrijs">
+                <fieldset class="personalForm">
                     <legend> Select prijsklasse</legend>
-                    <label for="prijs">Select prijsklasse</label>
-                    <input type="range" min="250" max="3000" value="50" class="slider" id="prijs">
+                    <p>Selecteer een prijsklasse</p>
+                    <select for="prijs" id="prijs" name="prijs">
+                        <option>geen </option>
+                        <option>500 - 1000</option>
+                        <option>1000 - 1500</option>
+                        <option>1500 - 2000</option>
+                        <option>2000- 2500 </option>
+               
+                    </select>
+
+
+
                 </fieldset>
+                <div class="personalForm">
+                    <input type="submit" value="Zoeken" form="zoekForm">
 
-            </fieldset>
-            <div class="formControl">
-                <input type="submit" value="Zoeken" form="zoekForm">
-
-            </div>
+                </div>
         </form>
     </div>
     <script src="/server.js"></script>
