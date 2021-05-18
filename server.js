@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 3000;
 const path = require('path'); 
+var mongoose = require('mongoose');
 
 const dogs = [{
     "id" : 1,
