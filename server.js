@@ -3,9 +3,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const port = 3000;
 const path = require('path'); 
-const mongo = require('mongoose');
-
-
+const mongoose = require('mongoose');
+const dogs = require('./dogs.json')
 
 const html = dogs.map(dog=> {
     return `
@@ -18,37 +17,31 @@ const html = dogs.map(dog=> {
 </article>`
 }).join('')
 
-console.log(dog.id)
+
 
 // MongoDB Database
-require('dotenv').config();
+const db = mongoose.connection;
 
-let db = null;
-let collectiondogs = null;
-const url ='mongodb+srv://asd123:asd123@cluster0-ofs74.mongodb.net/test?retryWrites=true&w=majority'
+const url = 'mongodb+srv://NPajonk:Nina%40pajonk25@cluster0-ofs74.mongodb.net/test?authSource=admin&replicaSet=Cluster0-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
+mongoose.connect(url, {'useNewUrlParser': true, 'useUnifiedTopology': true});
+db.collection('dogscollection');
 
-mongo.MongoClient.connect(url, function(err, client) {
-  if (err) {
-    throw err;
-  }
-  db = client.db(process.env.DB_NAME);
-  console.log("Verbinden met de database");
-  usersCollection = db.collection("collectiondogs");
-  
-});
+// db.collection('dogscollection').find({})
 
+const Schema = mongoose.Schema;
 
+const dogscollectionSchema = new Schema({
+  id: { type: String, required: true },
+  name: { type: String, required: true },
+  ras: { type: String, required: true },
+  gender: { type: String, required: true },
+  kleur: { type: String, required: true },
+  prijs: { type: Number, required: true }
+}, { collection: 'dogscollection' });
 
+const dogsdb = mongoose.model('dogscollection', dogscollectionSchema);
 
-// filteren 
-// let filteredDogs = []
-// if (dogs.findOne({ras: req.body.ras})) {
-//     // result.filteredDogs.push()
-// }
-// console.log (filteredDogs);
-
-
-
+dogsdb.find({ id: req.params.id });
 
 
 // bodyparser
@@ -81,7 +74,6 @@ app.get('/register', function(req, res) {
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname, '/public/404.html'))
     })
-
 
 
 //Server check
