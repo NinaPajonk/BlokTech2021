@@ -9,73 +9,80 @@
 </head>
 
 <body>
+    <header>
+        <nav>
+            <a href="#"> Terug</a>
+        </nav>
+    </header>
 
-    <div class="containerForm">
+    <main class="containerForm">
 
         <h1> Puppy toevoegen </h1>
         <img src="images/dog.svg">
 
         <form id="addForm" action="/add" method="POST">
-            <fieldset class="personalForm">
-                <legend> </legend>
-            </fieldset>
+
             <fieldset class="addForm">
                 <legend>Wat voor ras is je puppy?</legend>
-                <p> Kies een ras </p>
+                <p> Kies een ras: </p>
                 <select for="ras" id="ras" name="ras">
-                    <option>Australische labradoodle</option>
-                    <option>Beagle</option>
-                    <option>Chihuahua</option>
-                    <option>Chow Chow</option>
-                    <option>Dalmatier</option>
-                    <option>Duitse herder</option>
-                    <option>Franse Buldog</option>
-                    <option>Jackrussel</option>
-                    <option>Keeshond</option>
-                    <option>Labradoor</option>
-                    <option>Mopshond</option>
-                    <option>Poedel</option>
-                    <option>Pomeriaan</option>
-                    <option>Shiba</option>
-                    <option>Syberische husky</option>
-                    <option>Toypoedel</option>
-                    <option>Yorkshireterrier</option>
+                    <option value="labradoodle">Australische labradoodle</option>
+                    <option value="beagle">Beagle</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="Chow Chow">Chow Chow</option>
+                    <option value="Dalmatier">Dalmatier</option>
+                    <option value="Duitse Herder">Duitse herder</option>
+                    <option value="Franse Buldog">Franse Buldog</option>
+                    <option value="Jackrussel">Jackrussel</option>
+                    <option value="Keeshond">Keeshond</option>
+                    <option value="Labrador">Labrador</option>
+                    <option value="Mopshond">Mopshond</option>
+                    <option value="Poedel">Poedel</option>
+                    <option value="Pomeriaan">Pomeriaan</option>
+                    <option value="Shiba">Shiba</option>
+                    <option value="Syberische husky">Syberische husky</option>
+                    <option value="Toypoedel">Toypoedel</option>
+                    <option value="Yorkshireterrier">Yorkshireterrier</option>
                 </select>
             </fieldset>
+
             <fieldset class="addForm">
                 <legend>Geslacht</legend>
-                <label for="gender">geslacht:</label>
-                <input type="radio" id="reutje" name="gender" value="reutje">
+                <p> Geslacht:</p>
+                <input type="radio" id="gender" name="gender" value="reutje">
                 <label for="gender">Reutje</label>
-                <input type="radio" id="teefje" name="gender" value="teefje">
+                <input type="radio" id="gender" name="gender" value="teefje">
+                <label for="gender">Teefje</label>
             </fieldset>
-            <fieldset>
-                <legend>kleur</legend>
-                <label for="kleur"> kleur puppy:</label>
 
-                <input type="checkbox" id="kleur" name="kleur" value="wit">
-                <label for="kleur"> Wit</label>
-                <input type="checkbox" id="kleur" name="kleur" value="bruin">
-                <label for="kleur"> Bruin</label>
-                <input type="checkbox" id="kleur" name="kleur" value="zwart">
-                <label for="kleur"> Zwart</label>
-                <input type="checkbox" id="kleur" name="kleur" value="grijs">
-                <label for="kleur"> Grijs</label>
-                <input type="checkbox" id="kleur" name="kleur" value="rood">
-                <label for="kleur"> Rood</label>
+            <fieldset class="addForm">
+                <legend>Kleur</legend>
+                <p>Kleur:</p>
+                <input type="radio" id="Kleur" name="Kleur" value="Rood">
+                <label for="Kleur">Rood</label>
+                <input type="radio" id="Kleur" name="Kleur" value="Zwart">
+                <label for="Kleur">Zwart</label>
+                <input type="radio" id="Kleur" name="Kleur" value="Wit">
+                <label for="Kleur">Wit</label>
+                <input type="radio" id="Kleur" name="Kleur" value="Grijs">
+                <label for="Kleur">Grijs</label>
+                <input type="radio" id="Kleur" name="Kleur" value="Bruin">
+                <label for="Kleur">Bruin </label>
 
-                <fieldset class="addForm">
-                    <legend>Prijs puppy</legend>
-                    <label for="puppyprijs">Vraag prijs: €</label>
-                    <input type="text">
+            </fieldset>
 
-                </fieldset>
-                <fieldset class="addForm">
-                    <legend>Geboorte datum</legend>
-                    <label for="birthdate">Geboren op:</label>
-                    <input type="date">
+            <fieldset class="addForm">
+                <legend>Prijs puppy</legend>
+                <label for="puppyprijs">Vraag prijs: €</label>
+                <input type="text">
 
-                </fieldset>
+            </fieldset>
+            <fieldset class="addForm">
+                <legend>Geboorte datum</legend>
+                <label for="birthdate">Geboren op:</label>
+                <input type="date">
+
+            </fieldset>
 
             </fieldset>
             <div class="addForm">
@@ -83,8 +90,10 @@
 
             </div>
         </form>
-    </div>
-    <script src="/server.js"></script>
+    </main>
+    <footer>
+        <script src="/server.js"></script>
+    </footer>
 </body>
 
 </html>
