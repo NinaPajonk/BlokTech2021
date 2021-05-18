@@ -5,42 +5,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>Zoeken</title>
+    <title>Filteren</title>
 </head>
 
 <body>
 
-    <div class="containerForm">
+    <header>
+        <nav>
+            <a href="#"> Terug</a>
+        </nav>
+    </header>
 
-        <div id="result"> </div>
-        <h1> Zoeken </h1>
-        <img src="images/dog.svg">
+    <main class="containerForm">
 
-        <form id="personalForm" action="/search" method="POST">
+        <h1> Filteren </h1>
+        <img src="images/dog.svg" alt="doglogo">
+
+        <form class="personalForm" action="/search" method="POST">
 
             <fieldset class="personalForm">
                 <legend>Naar wat voor ras ben je op zoek?</legend>
                 <p> Kies een ras </p>
                 <select for="ras" id="ras" name="ras">
-                    <option>Australische labradoodle</option>
-                    <option>Beagle</option>
-                    <option>Chihuahua</option>
-                    <option>Chow Chow</option>
-                    <option>Dalmatier</option>
-                    <option>Duitse herder</option>
-                    <option>Franse Buldog</option>
-                    <option>Jackrussel</option>
-                    <option>Keeshond</option>
-                    <option>Labradoor</option>
-                    <option>Mopshond</option>
-                    <option>Poedel</option>
-                    <option>Pomeriaan</option>
-                    <option>Shiba</option>
-                    <option>Syberische husky</option>
-                    <option>Toypoedel</option>
-                    <option>Yorkshireterrier</option>
+                    <option value="labradoodle">Australische labradoodle</option>
+                    <option value="beagle">Beagle</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="Chow Chow">Chow Chow</option>
+                    <option value="Dalmatier">Dalmatier</option>
+                    <option value="Duitse Herder">Duitse herder</option>
+                    <option value="Franse Buldog">Franse Buldog</option>
+                    <option value="Jackrussel">Jackrussel</option>
+                    <option value="Keeshond">Keeshond</option>
+                    <option value="Labrador">Labrador</option>
+                    <option value="Mopshond">Mopshond</option>
+                    <option value="Poedel">Poedel</option>
+                    <option value="Pomeriaan">Pomeriaan</option>
+                    <option value="Shiba">Shiba</option>
+                    <option value="Syberische husky">Syberische husky</option>
+                    <option value="Toypoedel">Toypoedel</option>
+                    <option value="Yorkshireterrier">Yorkshireterrier</option>
                 </select>
             </fieldset>
+
             <fieldset class="personalForm">
                 <legend>Geslacht</legend>
                 <label for="gender">Voorkeur geslacht:</label>
@@ -54,40 +60,41 @@
 
             <fieldset class="personalForm">
                 <legend>Voorkeur voor kleur?</legend>
-                <p> <i>Meerdere opties mogelijk</i></p>
-                <input type="checkbox" id="kleur" name="kleur" value="wit">
-                <label for="kleur"> Wit</label><br>
-                <input type="checkbox" id="kleur" name="kleur" value="bruin">
-                <label for="kleur"> Bruin</label><br>
-                <input type="checkbox" id="kleur" name="kleur" value="zwart">
-                <label for="kleur"> Zwart</label><br>
-                <input type="checkbox" id="kleurGrijs" name="kleur" value="grijs">
-                <label for="kleur"> Grijs</label><br>
-                <input type="checkbox" id="kleurRood" name="kleur" value="rood">
-                <label for="kleur"> Rood</label>
+                <p>Voorkeur kleur: <i>(Meerdere opties mogelijk)</i></p>
+                <input type="checkbox" id="kleur" name="kleur" value="Wit">
+                <label for="kleur">Wit</label><br>
+                <input type="checkbox" id="kleur" name="kleur" value="Bruin">
+                <label for="kleur">Bruin</label><br>
+                <input type="checkbox" id="kleur" name="kleur" value="Zwart">
+                <label for="kleur">Zwart</label><br>
+                <input type="checkbox" id="kleurGrijs" name="kleur" value="Grijs">
+                <label for="kleur">Grijs</label><br>
+                <input type="checkbox" id="kleurRood" name="kleur" value="Rood">
+                <label for="kleur">Rood</label>
+            </fieldset>
 
                 <fieldset class="personalForm">
                     <legend> Select prijsklasse</legend>
                     <p>Selecteer een prijsklasse</p>
                     <select for="prijs" id="prijs" name="prijs">
-                        <option>geen </option>
-                        <option>500 - 1000</option>
-                        <option>1000 - 1500</option>
-                        <option>1500 - 2000</option>
-                        <option>2000- 2500 </option>
-               
+                        <option value="">geen </option>
+                        <option value="">500 - 1000</option>
+                        <option value="">1000 - 1500</option>
+                        <option value="">1500 - 2000</option>
+                        <option value="">2000- 2500 </option>
                     </select>
-
-
-
                 </fieldset>
+
+
                 <div class="personalForm">
                     <input type="submit" value="Zoeken" form="zoekForm">
-
                 </div>
         </form>
-    </div>
+    </main>
+    
+    <footer> 
     <script src="/server.js"></script>
+</footer>
 </body>
 
 </html>
