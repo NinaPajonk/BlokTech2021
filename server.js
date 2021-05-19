@@ -6,8 +6,10 @@ const path = require('path');
 const mongoose = require('mongoose');
 const dogs = require('./dogs.json')
 
+// dot env
 require('dotenv').config()
 
+// html inladen
 const html = dogs.map(dog=> {
     return `
 <article class="dog">
@@ -63,7 +65,7 @@ app.get('/', function(req, res) {
 res.render('overview', {hondenNamen: dogs})
 
 })
-// test
+// test html inladen
 app.get('/test', function(req, res) {
     res.render('test', {dog: html })
     
@@ -73,7 +75,7 @@ app.get('/register', function(req, res) {
     res.render('register')
     
     })
-// handling error 404 statichs
+// handling error 404 static
 app.get('*', function(req, res){
     res.sendFile(path.join(__dirname, '/public/404.html'))
     })
