@@ -6,6 +6,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const dogs = require('./dogs.json')
 
+require('dotenv').config()
+
 const html = dogs.map(dog=> {
     return `
 <article class="dog">
@@ -26,8 +28,9 @@ const url = 'mongodb+srv://NPajonk:Nina%40pajonk25@cluster0-ofs74.mongodb.net/te
 mongoose.connect(url, {'useNewUrlParser': true, 'useUnifiedTopology': true});
 db.collection('dogscollection');
 
-// db.collection('dogscollection').find({})
+db.collection('dogscollection').find({})
 
+// Mongoose Schema
 const Schema = mongoose.Schema;
 
 const dogscollectionSchema = new Schema({
