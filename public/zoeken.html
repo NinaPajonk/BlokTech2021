@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8">
@@ -21,9 +21,9 @@
         <h1> Filteren </h1>
         <img src="images/dog.svg" alt="doglogo">
 
-        <form class="personalForm" action="/search" method="POST">
+        <form id="zoekForm" class="personalForm" action="/search" method="POST">
 
-            <fieldset class="personalForm">
+            <fieldset>
                 <legend>Naar wat voor ras ben je op zoek?</legend>
                 <p> Kies een ras </p>
                 <select for="ras" id="ras" name="ras">
@@ -47,7 +47,7 @@
                 </select>
             </fieldset>
 
-            <fieldset class="personalForm">
+            <fieldset>
                 <legend>Geslacht</legend>
                 <label for="gender">Voorkeur geslacht:</label>
                 <input type="radio" id="gender" name="gender" value="reutje">
@@ -58,7 +58,7 @@
                 <label for="gender">Geen voorkeur</label>
             </fieldset>
 
-            <fieldset class="personalForm">
+            <fieldset>
                 <legend>Heeft u een voorkeur voor de kleur?</legend>
                 <p>Voorkeur kleur (Meerdere opties mogelijk)</p>
                 <input type="checkbox" id="kleur" name="kleur" value="Wit">
@@ -73,7 +73,7 @@
                 <label for="kleur">Rood</label>
             </fieldset>
 
-                <fieldset class="personalForm">
+                <fieldset>
                     <legend> Select prijsklasse</legend>
                     <p>Selecteer een prijsklasse</p>
                     <select for="prijs" id="prijs" name="prijs">
@@ -86,8 +86,8 @@
                 </fieldset>
 
 
-                <div class="personalForm">
-                    <input type="submit" value="Zoeken" form="zoekForm">
+                <div>
+                    <input type="submit" value="Laat resultaten zien" form="zoekForm">
                 </div>
         </form>
     </main>

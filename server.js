@@ -69,16 +69,22 @@ mongoose.connect(url, {
 
 
 
-dogsdb.find({
-    kleur: 'wit'
-}), (err, data) => {
-    if (err) {
-        console.log(err)
-    } else {
-        console.log(data)
-    }
-};
+// overeen komen met de action in html form = search 
+app.post('/search', function (req, res) {
+    dogsdb.find({
+        kleur: 'wit'
+    }), (err, data) => {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(data)
+        }
+    };
 
+    res.render('test', {
+
+    })
+})
 
 // bodyparser
 app.use(bodyParser.urlencoded({
