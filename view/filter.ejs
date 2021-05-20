@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <%- include('./components/head') %>
+    <title>filteren</title>
+</head>
+
+<body>
+    <header> 
+    <nav>
+        <a href="#"> Terug</a>
+    </nav>
+</header>
+<main class="containerForm">
+
+    <h1> Filteren </h1>
+    <img src="images/dog.svg" alt="doglogo">
+
+
+
+    <form id="filterForm" action="/search" method="POST">
+
+
+            <fieldset>
+                <legend>Naar wat voor ras ben je op zoek?</legend>
+                <p> Kies een ras </p>
+                <select for="ras" id="ras" name="ras">
+                    <option value="labradoodle">Australische labradoodle</option>
+                    <option value="beagle">Beagle</option>
+                    <option value="Chihuahua">Chihuahua</option>
+                    <option value="Chow Chow">Chow Chow</option>
+                    <option value="Dalmatier">Dalmatier</option>
+                    <option value="Duitse Herder">Duitse herder</option>
+                    <option value="Franse Buldog">Franse Buldog</option>
+                    <option value="Jackrussel">Jackrussel</option>
+                    <option value="Keeshond">Keeshond</option>
+                    <option value="Labrador">Labrador</option>
+                    <option value="Mopshond">Mopshond</option>
+                    <option value="Poedel">Poedel</option>
+                    <option value="Pomeriaan">Pomeriaan</option>
+                    <option value="Shiba">Shiba</option>
+                    <option value="Syberische husky">Syberische husky</option>
+                    <option value="Toypoedel">Toypoedel</option>
+                    <option value="Yorkshireterrier">Yorkshireterrier</option>
+                </select>
+            </fieldset>
+
+            <!-- <fieldset>
+                <legend>Geslacht</legend>
+                <label for="gender">Voorkeur geslacht:</label>
+                <input type="radio" id="gender" name="gender" value="reutje">
+                <label for="gender">Reutje</label>
+                <input type="radio" id="gender" name="gender" value="teefje">
+                <label for="gender">teefje</label>
+                <input type="radio" id="gender" name="gender" value="geen">
+                <label for="gender">Geen voorkeur</label>
+            </fieldset>
+
+            <fieldset>
+                <legend>Heeft u een voorkeur voor de kleur?</legend>
+                <p>Voorkeur kleur (Meerdere opties mogelijk)</p>
+                <input type="checkbox" id="kleur" name="kleur" value="Wit">
+                <label for="kleur">Wit</label>
+                <input type="checkbox" id="kleur" name="kleur" value="Bruin">
+                <label for="kleur">Bruin</label>
+                <input type="checkbox" id="kleur" name="kleur" value="Zwart">
+                <label for="kleur">Zwart</label>
+                <input type="checkbox" id="kleurGrijs" name="kleur" value="Grijs">
+                <label for="kleur">Grijs</label>
+                <input type="checkbox" id="kleurRood" name="kleur" value="Rood">
+                <label for="kleur">Rood</label>
+            </fieldset>
+
+                <fieldset>
+                    <legend> Select prijsklasse</legend>
+                    <p>Selecteer een prijsklasse</p>
+                    <select for="prijs" id="prijs" name="prijs">
+                        <option value="500-2500">geen </option>
+                        <option value="500-1000">500 - 1000</option>
+                        <option value="1000-1500">1000 - 1500</option>
+                        <option value="1500-2000">1500 - 2000</option>
+                        <option value="2000-2500">2000- 2500 </option>
+                    </select>
+                </fieldset> -->
+             
+        <input type="submit" value="verzenden" form="filterForm">
+    </form>
+</main>
+
+</body>
+
+</html>

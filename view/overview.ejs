@@ -7,31 +7,22 @@
 
 </head>
 
-<body>
-    <p>Hi,</p>  <%- hondenNamen[Math.floor(Math.random() * 7)] %> 
 
-    <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <title>Login</title>
-    </head>
-    
+
+
+
     <body>
         <header>
             <img src="images/dog.svg">
             <h1> Puppy zoekt Baasje</h1>
     
-    
-            <a href="#"> <button class="dogbut" id="zoekenbut"> <img src="images/magnifier.svg" alt="zoeken"> </button> </a>
-            <a href="#"> <button class="dogbut" id="filterbut"> <img src="images/paper.svg" alt="filteren"> </button> </a>
+
+            <a href="/puppy-filteren"> <button class="dogbut" id="filterbut"> <img src="images/paper.svg" alt="filteren"> </button> </a>
+            <li><a href="/puppy-toevoegen"><button class="dogbut"> Puppy toevoegen</a></li>
         </header>
         <div class="wrapper">
-            <h2>  <%- hondenNamen[name + ras] %>  </h2>
-            <span> &#8364 800</span>
+ 
+       
     
             <img src="images/Chihuahua.jpg">
             <p> Chihuahua Danny zoekt nog een leuk baasje. Danny is een bruin reutje met de vraagprijs van 800 euro. </p>
@@ -42,11 +33,9 @@
     
     
         </div>
-        <script src="/server.js"></script>
+     
+        
     </body>
     
     </html>
 
-</body>
-
-</html>

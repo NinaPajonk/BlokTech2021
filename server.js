@@ -4,19 +4,30 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const path = require('path');
 const mongoose = require('mongoose');
-const dogs = require('./dogs.json')
+const mongodb = require('mongodb');
+
 
 // dot env
 // require('dotenv').config()
+
+// MongoDB Database
+const db = mongoose.connection;
+
+const url = 'mongodb+srv://Walvishaai18:Walvishaai18@cluster0.ofs74.mongodb.net/databasedogs?retryWrites=true&w=majority'
+mongoose.connect(url, {
+    'useNewUrlParser': true,
+    'useUnifiedTopology': true
+});
+
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose connected')
+})
 
 // Mongoose Schema
 const Schema = mongoose.Schema;
 
 const dogscollectionSchema = new Schema({
-    id: {
-        type: String,
-        required: true
-    },
+
     name: {
         type: String,
         required: true
@@ -29,14 +40,20 @@ const dogscollectionSchema = new Schema({
         type: String,
         required: true
     },
-    kleur: {
+    kleur:{
         type: String,
         required: true
     },
-    prijs: {
+    prijs:{
+        type: String,
+        required: true
+    },
+    geboortedatum:{
         type: String,
         required: true
     }
+
+
 }, {
     collection: 'dogscollection'
 });
@@ -44,68 +61,33 @@ const dogscollectionSchema = new Schema({
 const dogsdb = mongoose.model('dogscollection', dogscollectionSchema);
 
 
-// html inladen
-const html = dogs.map(dog => {
-    return `
-<article class="dog">
-<a href="#${dog.id}">
-<p>${dog.name}</p>
-<p>${dog.gender} </p>
-<p>${dog.prijs}</p>
-</a>
-</article>`
-}).join('')
+// statische pagina's
+app.use(express.static(__dirname + '/public/'))
 
-
-
-// MongoDB Database
-const db = mongoose.connection;
-
-const url = 'mongodb+srv://Walvishaai18:Walvishaai18@cluster0.ofs74.mongodb.net/databasedogs?retryWrites=true&w=majority'
-mongoose.connect(url, {
-    'useNewUrlParser': true,
-    'useUnifiedTopology': true
-});
-
-
-
-// overeen komen met de action in html form = search 
-app.post('/search', function (req, res) {
-    dogsdb.find({
-        kleur: 'wit'
-    }), (err, data) => {
-        if (err) {
-            console.log(err)
-        } else {
-            console.log(data)
-        }
-    };
-
-    res.render('test', {
-
-    })
-})
+// template engine 
+app.set('views', 'view');
+app.set('view engine', 'ejs')
 
 // bodyparser
 app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-// statische pagina's
-app.use(express.static(__dirname + '/public/'))
-
-
-// template engine 
-app.set('views', 'view');
-app.set('view engine', 'ejs')
 
 // routes (dynamische pagina's)
-app.get('/', function (req, res) {
-    res.render('overview', {
-        hondenNamen: dogs
-    })
+app.get('/', (req, res) => {
+    res.render('overview')
 
 })
+
+app.get('/puppy-toevoegen', (req, res) => {
+    res.render('add')
+})
+
+app.get('/puppy-filteren', (req, res) => {
+    res.render('filter')
+})
+
 // test html inladen
 app.get('/test', function (req, res) {
     res.render('test', {
@@ -122,6 +104,59 @@ app.get('/register', function (req, res) {
 app.get('*', function (req, res) {
     res.sendFile(path.join(__dirname, '/public/404.html'))
 })
+
+
+// overeen komen met de action in html form = add
+app.post('/add', function (req, res) {
+    const newDog = {
+        name: req.body.naam,
+        ras: req.body.ras,
+        gender: req.body.gender,
+        kleur: req.body.kleur,
+        prijs: req.body.prijs,
+        geboortedatum: req.body.geboortedatum
+
+    }
+
+    const data = new dogsdb(newDog)
+    data.save();
+    res.render('test', {
+
+    })
+})
+
+// search
+app.post('/search', function (req, res) {
+    dogsdb.find({
+        ras: req.body.ras
+        },
+        (err, data) => {
+            if (err) {
+                console.log(error)
+            } else {
+                console.log(data)
+            }
+        }
+
+    )
+
+
+})
+
+// html inladen
+// const html = dogs.map(dog => {
+//     return `
+// <article class="dog">
+// <a href="#${dog.id}">
+// <p>${dog.name}</p>
+// <p>${dog.gender} </p>
+// <p>${dog.prijs}</p>
+// </a>
+// </article>`
+// }).join('')
+
+
+
 
 
 //Server check

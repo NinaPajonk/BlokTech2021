@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
     <title>Login</title>
@@ -21,7 +21,15 @@
 
         <form id="addForm" action="/add" method="POST">
 
-            <fieldset class="addForm">
+            <fieldset>
+                <legend> Wat is de naam van je puppy?</legend>
+                <label for="naam"> Wat is de naam van je puppy?
+                    <input type="text" name="naam"> </input>
+                </label>
+
+            </fieldset>
+
+            <fieldset>
                 <legend>Wat voor ras is je puppy?</legend>
                 <p> Kies een ras: </p>
                 <select for="ras" id="ras" name="ras">
@@ -45,7 +53,7 @@
                 </select>
             </fieldset>
 
-            <fieldset class="addForm">
+            <fieldset>
                 <legend>Geslacht</legend>
                 <p> Geslacht:</p>
                 <input type="radio" id="gender" name="gender" value="reutje">
@@ -54,48 +62,42 @@
                 <label for="gender">Teefje</label>
             </fieldset>
 
-            <fieldset class="addForm">
+            <fieldset>
                 <legend>Kleur</legend>
                 <p>Kleur:</p>
-                <input type="radio" id="Kleur" name="Kleur" value="Rood">
+                <input type="radio" id="Kleur" name="kleur" value="Rood">
                 <label for="Kleur">Rood</label>
-                <input type="radio" id="Kleur" name="Kleur" value="Zwart">
+                <input type="radio" id="Kleur" name="kleur" value="Zwart">
                 <label for="Kleur">Zwart</label>
-                <input type="radio" id="Kleur" name="Kleur" value="Wit">
+                <input type="radio" id="Kleur" name="kleur" value="Wit">
                 <label for="Kleur">Wit</label>
-                <input type="radio" id="Kleur" name="Kleur" value="Grijs">
+                <input type="radio" id="Kleur" name="kleur" value="Grijs">
                 <label for="Kleur">Grijs</label>
-                <input type="radio" id="Kleur" name="Kleur" value="Bruin">
+                <input type="radio" id="Kleur" name="kleur" value="Bruin">
                 <label for="Kleur">Bruin </label>
-
             </fieldset>
 
-            <fieldset class="addForm">
+            <fieldset>
                 <legend>Prijs puppy</legend>
                 <label for="puppyprijs">Vraag prijs: €</label>
-                <input type="text">
-
+                <input type="text" name="prijs">
             </fieldset>
-            <fieldset class="addForm">
+
+            <fieldset>
                 <legend>Geboorte datum</legend>
                 <label for="birthdate">Geboren op:</label>
-                <input type="date">
-
-            </fieldset>
-            <fieldset>
-          <!-- Upload foto --> 
+                <input type="date" name="geboortedatum">
             </fieldset>
 
-            </fieldset>
+
+
             <div class="addForm">
                 <input type="submit" value="toevoegen" form="addForm">
 
             </div>
         </form>
     </main>
-    <footer>
-        <script src="/server.js"></script>
-    </footer>
+
 </body>
 
 </html>
