@@ -6,9 +6,8 @@ const path = require('path');
 const mongoose = require('mongoose');
 const mongodb = require('mongodb');
 
-
 // dot env
-// require('dotenv').config()
+require('dotenv').config()
 
 // MongoDB Database
 const db = mongoose.connection;
@@ -40,15 +39,19 @@ const dogscollectionSchema = new Schema({
         type: String,
         required: true
     },
-    kleur:{
+    kleur: {
         type: String,
         required: true
     },
-    prijs:{
+    prijs: {
         type: String,
         required: true
     },
-    geboortedatum:{
+    geboortedatum: {
+        type: String,
+        required: true
+    },
+    profielfoto:{
         type: String,
         required: true
     }
@@ -106,7 +109,7 @@ app.get('*', function (req, res) {
 })
 
 
-// overeen komen met de action in html form = add
+// dog toevoegen form /add
 app.post('/add', function (req, res) {
     const newDog = {
         name: req.body.naam,
@@ -114,7 +117,8 @@ app.post('/add', function (req, res) {
         gender: req.body.gender,
         kleur: req.body.kleur,
         prijs: req.body.prijs,
-        geboortedatum: req.body.geboortedatum
+        geboortedatum: req.body.geboortedatum,
+        profielfoto: req.body.profielfoto
 
     }
 
@@ -125,41 +129,37 @@ app.post('/add', function (req, res) {
     })
 })
 
-// search
+// dog zoeken filter /search
 app.post('/search', function (req, res) {
-    dogsdb.find({
-        ras: req.body.ras
-        },
-        (err, data) => {
-            if (err) {
-                console.log(error)
-            } else {
-                console.log(data)
-            }
-        }
-
-    )
+            dogsdb.find({
+                    ras: req.body.ras
 
 
-})
+                })
+res.render('overview', {
 
-// html inladen
-// const html = dogs.map(dog => {
-//     return `
-// <article class="dog">
-// <a href="#${dog.id}">
-// <p>${dog.name}</p>
-// <p>${dog.gender} </p>
-// <p>${dog.prijs}</p>
-// </a>
-// </article>`
-// }).join('')
+                })
+
+            })
+            
+
+        // html inladen
+        // const html = dogs.map(dog => {
+        //     return `
+        // <article class="dog">
+        // <a href="#${dog.id}">
+        // <p>${dog.name}</p>
+        // <p>${dog.gender} </p>
+        // <p>${dog.prijs}</p>
+        // </a>
+        // </article>`
+        // }).join('')
 
 
 
 
 
-//Server check
-app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
-})
+        //Server check
+        app.listen(port, () => {
+            console.log(`Example app listening at http://localhost:${port}`)
+        })
