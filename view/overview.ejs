@@ -7,35 +7,41 @@
 
 </head>
 
+<body>
+    <header>
+        <img src="images/dog.svg">
+        <h1> Puppy zoekt Baasje</h1>
+
+
+        <a href="/puppy-filteren"> <button class="dogbut" id="filterbut"> </button> </a>
+        <li><a href="/puppy-toevoegen"><button class="dogbut"> Puppy toevoegen</a></li>
+    </header>
+
+<h1> Halloo puppy</h1>
+        <% results.forEach(function(puppy) { %>
+
+        <article>
+            <h1> <%= puppy.name %> </h1>
+            <img src="../public/images/Chihuahua.jpg">
+            <h1> <%= puppy.ras  %> </h1>
+            <h1> <%= puppy.gender %> </h1>
+            <h1> <%= puppy.kleur %></h1>
+            <h1> <%= puppy.geboortedatum %> </h1>
 
 
 
 
-    <body>
-        <header>
-            <img src="images/dog.svg">
-            <h1> Puppy zoekt Baasje</h1>
-    
+        </article>
 
-            <a href="/puppy-filteren"> <button class="dogbut" id="filterbut"> <img src="images/paper.svg" alt="filteren"> </button> </a>
-            <li><a href="/puppy-toevoegen"><button class="dogbut"> Puppy toevoegen</a></li>
-        </header>
-        <div class="wrapper">
- 
-       
-    
-            <img src="images/Chihuahua.jpg">
-            <p> Chihuahua Danny zoekt nog een leuk baasje. Danny is een bruin reutje met de vraagprijs van 800 euro. </p>
-    
-                <a href="#"> <button class="dogbut" id="likebut"> <img src="images/like(1).svg" alt="like"> </button> </a>
-                <a href="#"> <button class="dogbut" id="dislikebut"> <img src="images/dislike.svg" alt="Dislike"> </button>
-                </a>
-    
-    
-        </div>
-     
-        
-    </body>
-    
-    </html>
+        <% }) %>
 
+
+
+
+
+
+
+
+</body>
+
+</html>

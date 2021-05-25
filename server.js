@@ -4,23 +4,44 @@ const bodyParser = require('body-parser');
 const port = 3000;
 const path = require('path');
 const mongoose = require('mongoose');
-const mongodb = require('mongodb');
+const multer = require('multer');
+
+
+// defineer plek voor de upgeloade afbeeldingen
+const storage = multer.diskStorage({
+
+    destination: function (req, file, callback) {
+        callback(null, './public/uploads/images');
+    },
+    // add back afbeeldingen
+    filename: function (req, file, callback) {
+        callback(null, Date.now() + (file.originalname))
+    }
+});
+
+//upload paremeter for multer
+const upload = multer({
+    storage: storage,
+    limits: {
+        fileSize: 1024 * 1024 * 3,
+    },
+})
 
 // dot env
 require('dotenv').config()
 
 // MongoDB Database
-const db = mongoose.connection;
-
-const url = 'mongodb+srv://Walvishaai18:Walvishaai18@cluster0.ofs74.mongodb.net/databasedogs?retryWrites=true&w=majority'
+const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@cluster0.ofs74.mongodb.net/databasedogs?retryWrites=true&w=majority'
 mongoose.connect(url, {
-    'useNewUrlParser': true,
+   'useNewUrlParser': true,
     'useUnifiedTopology': true
 });
 
 mongoose.connection.on('connected', () => {
     console.log('Mongoose connected')
 })
+
+
 
 // Mongoose Schema
 const Schema = mongoose.Schema;
@@ -51,7 +72,7 @@ const dogscollectionSchema = new Schema({
         type: String,
         required: true
     },
-    profielfoto:{
+    profielfoto: {
         type: String,
         required: true
     }
@@ -77,11 +98,6 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-// routes (dynamische pagina's)
-app.get('/', (req, res) => {
-    res.render('overview')
-
-})
 
 app.get('/puppy-toevoegen', (req, res) => {
     res.render('add')
@@ -94,7 +110,7 @@ app.get('/puppy-filteren', (req, res) => {
 // test html inladen
 app.get('/test', function (req, res) {
     res.render('test', {
-        dog: html
+
     })
 
 })
@@ -105,12 +121,13 @@ app.get('/register', function (req, res) {
 })
 // handling error 404 static
 app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, '/public/404.html'))
+    res.sendFile(path.join(__dirname, '/public/HTML/404.html'))
 })
 
 
 // dog toevoegen form /add
-app.post('/add', function (req, res) {
+app.post('/add', upload.single('image'), function (req, res) {
+    // console.log(request.file)
     const newDog = {
         name: req.body.naam,
         ras: req.body.ras,
@@ -118,48 +135,48 @@ app.post('/add', function (req, res) {
         kleur: req.body.kleur,
         prijs: req.body.prijs,
         geboortedatum: req.body.geboortedatum,
-        profielfoto: req.body.profielfoto
+        profielfoto: req.file.profielfoto
+
 
     }
-
     const data = new dogsdb(newDog)
     data.save();
-    res.render('test', {
-
+    dogsdb.find({}, function (err, dogs) {
+        if (err) {
+            console.log(err)
+        } else {
+            res.render('overview', {
+                results: dogs
+            })
+        }
     })
 })
 
 // dog zoeken filter /search
 app.post('/search', function (req, res) {
-            dogsdb.find({
-                    ras: req.body.ras
+    dogsdb.find({
+        ras: req.body.ras,
+        gender: req.body.gender,
+        kleur: req.body.kleur
 
-
-                })
-res.render('overview', {
-
-                })
-
+    }, function (err, resultDogs) {
+        if (err) {
+            console.log(err)
+        } else {
+            console.log(resultDogs)
+            res.render('overview', {
+                results: resultDogs
             })
-            
 
-        // html inladen
-        // const html = dogs.map(dog => {
-        //     return `
-        // <article class="dog">
-        // <a href="#${dog.id}">
-        // <p>${dog.name}</p>
-        // <p>${dog.gender} </p>
-        // <p>${dog.prijs}</p>
-        // </a>
-        // </article>`
-        // }).join('')
+        }
+    })
+
+})
 
 
 
 
-
-        //Server check
-        app.listen(port, () => {
-            console.log(`Example app listening at http://localhost:${port}`)
-        })
+//Server check
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
