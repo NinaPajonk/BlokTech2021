@@ -119,7 +119,7 @@ app.use(bodyParser.urlencoded({
 
 
 
-app.get('/puppy-toevoegen', (req, res) => {
+app.get('/', (req, res) => {
     res.render('add')
 })
 
