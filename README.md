@@ -1,6 +1,8 @@
 # BlokTech2021
 Backend A1 + Frontend2
 
+Live link naar demo: https://puppyduppy.herokuapp.com/
+
 ## Hoe te installeren:
 ### 1. Clone deze repo 
 `` Git clone: https://github.com/NinaPajonk/BlokTech2021 ``
