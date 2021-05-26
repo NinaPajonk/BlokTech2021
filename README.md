@@ -1,6 +1,8 @@
 # BlokTech2021
 Backend A1 + Frontend2
 
+# Puppy Application
+Application that help users find or add a puppy.
 Live link naar demo: https://puppyduppy.herokuapp.com/
 
 ## Hoe te installeren:
