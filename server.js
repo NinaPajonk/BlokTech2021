@@ -117,9 +117,11 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-
-
 app.get('/', (req, res) => {
+    res.render('home')
+})
+
+app.get('/puppy-toevoegen', (req, res) => {
     res.render('add')
 })
 
