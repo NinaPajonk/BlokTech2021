@@ -1,31 +1,49 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const port = 3000;
+const port = process.env.PORT || 3000;
 const path = require('path');
 const mongoose = require('mongoose');
 const multer = require('multer');
 
 
-// defineer plek voor de upgeloade afbeeldingen
-const storage = multer.diskStorage({
 
-    destination: function (req, file, callback) {
-        callback(null, './public/uploads/images');
-    },
-    // add back afbeeldingen
+// "storage" voor de upgeloade afbeeldingen
+// bron voor images uploaden: https://www.youtube.com/watch?v=9Qzmri1WaaE
+const storage = multer.diskStorage({
+    destination: './public/uploads/images',
     filename: function (req, file, callback) {
-        callback(null, Date.now() + (file.originalname))
+        callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     }
+
 });
 
-//upload paremeter for multer
+// upload
+
 const upload = multer({
     storage: storage,
     limits: {
-        fileSize: 1024 * 1024 * 3,
-    },
-})
+        fileFilter: function (req, file, cb) {
+            checkFileType(file, cb);
+
+        }
+    }
+}).single('profielfoto');
+
+// check file type
+
+function checkFileType(file, cb) {
+    const fileTypes = /jpeg|jpg|png|gif/;
+    const extName = fileTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimeType = fileTypes.test(file.mimeType)
+    if (mimeType && extName) {
+        return cb(null, true);
+
+    } else {
+        cb('Error: Images only!')
+    }
+}
+
 
 // dot env
 require('dotenv').config()
@@ -33,7 +51,7 @@ require('dotenv').config()
 // MongoDB Database
 const url = 'mongodb+srv://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@cluster0.ofs74.mongodb.net/databasedogs?retryWrites=true&w=majority'
 mongoose.connect(url, {
-   'useNewUrlParser': true,
+    'useNewUrlParser': true,
     'useUnifiedTopology': true
 });
 
@@ -44,6 +62,7 @@ mongoose.connection.on('connected', () => {
 
 
 // Mongoose Schema
+// hulp gehad van Inju Michorius van de minor web development
 const Schema = mongoose.Schema;
 
 const dogscollectionSchema = new Schema({
@@ -73,6 +92,7 @@ const dogscollectionSchema = new Schema({
         required: true
     },
     profielfoto: {
+        data: Buffer,
         type: String,
         required: true
     }
@@ -107,13 +127,6 @@ app.get('/puppy-filteren', (req, res) => {
     res.render('filter')
 })
 
-// test html inladen
-app.get('/test', function (req, res) {
-    res.render('test', {
-
-    })
-
-})
 
 app.get('/register', function (req, res) {
     res.render('register')
@@ -126,32 +139,41 @@ app.get('*', function (req, res) {
 
 
 // dog toevoegen form /add
-app.post('/add', upload.single('image'), function (req, res) {
-    // console.log(request.file)
-    const newDog = {
-        name: req.body.naam,
-        ras: req.body.ras,
-        gender: req.body.gender,
-        kleur: req.body.kleur,
-        prijs: req.body.prijs,
-        geboortedatum: req.body.geboortedatum,
-        profielfoto: req.file.profielfoto
+app.post('/add', (req, res) => {
 
-
-    }
-    const data = new dogsdb(newDog)
-    data.save();
-    dogsdb.find({}, function (err, dogs) {
+    upload(req, res, (err) => {
         if (err) {
-            console.log(err)
-        } else {
-            res.render('overview', {
-                results: dogs
-            })
-        }
-    })
-})
+            console.log(err);
 
+        }
+        console.log(req.file);
+
+
+        const newDog = {
+            name: req.body.naam,
+            ras: req.body.ras,
+            gender: req.body.gender,
+            kleur: req.body.kleur,
+            prijs: req.body.prijs,
+            geboortedatum: req.body.geboortedatum,
+            profielfoto: req.file ? req.file.filename : null
+        }
+
+        const data = new dogsdb(newDog)
+        data.save();
+        dogsdb.find({}, function (err, dogs) {
+            if (err) {
+                console.log(err)
+            } else {
+                console.log(newDog)
+                res.render('overview', {
+                    results: dogs,
+                    file: `uploads/images/${req.file.filename}`
+                })
+            }
+        })
+    });
+});
 // dog zoeken filter /search
 app.post('/search', function (req, res) {
     dogsdb.find({
@@ -165,13 +187,14 @@ app.post('/search', function (req, res) {
         } else {
             console.log(resultDogs)
             res.render('overview', {
-                results: resultDogs
-            })
-
+                results: resultDogs,
+              
+            });
         }
-    })
+        
+    });
 
-})
+});
 
 
 
