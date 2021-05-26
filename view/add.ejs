@@ -24,7 +24,7 @@
             <fieldset>
                 <legend> Wat is de naam van je puppy?</legend>
                 <label for="naam"> Wat is de naam van je puppy?
-                    <input type="text" name="naam"> </input>
+                    <input type="text" name="naam"  pattern="[A-zÀ-ž- ]+"  placeholder="Danny" title="gebruik geen symbolen en/of cijfers"  required>
                 </label>
 
             </fieldset>
@@ -80,19 +80,19 @@
             <fieldset>
                 <legend>Prijs puppy</legend>
                 <label for="puppyprijs">Vraag prijs: €</label>
-                <input type="text" name="prijs">
+                <input type="text" name="prijs" placeholder="00,00" title="gebruik alleen cijfers" required>
             </fieldset>
 
             <fieldset>
                 <legend>Geboorte datum</legend>
                 <label for="birthdate">Geboren op:</label>
-                <input type="date" name="geboortedatum">
+                <input type="date" name="geboortedatum" required>
             </fieldset>
 
             <fieldset>
                 <legend> Profiel foto puppy</legend>
                 <label for="profielfoto" name="profielfoto">upload een foto:</label>
-                <input type="file" name="profielfoto">
+                <input type="file" name="profielfoto" title="het uploaden van een foto is verplicht" required>
             </fieldset>
  
 
