@@ -17,14 +17,23 @@ img {
   margin-right: auto;
   display: block;
 }
+
+a {  text-decoration: none;
+    color: #fff;
+    background: #ec5da0aa;
+    padding: 12px 24px;
+    display: inline-block;
+    border-radius: 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.4s;
+
+}
 /* Overview puppys aanbod*/
 
 .puppyContainer{
 display: flex;
 flex-direction: row;
-
-
-
 }
 
 article img{
