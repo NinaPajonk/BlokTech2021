@@ -5,11 +5,82 @@ body {
   min-height: 100vh;
   background-image: linear-gradient(115deg, #3ca0be, #fff);
 }
-#home {
-  float: left;
-  width: 30px;
-  padding: 10px;
+/*.............responsive mobile (first)................*/
+
+@media screen and (max-width: 600px) {
+  h1 {
+    color: #fff;
+    border-bottom: 1px dotted #fff;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+
+  article a {
+    text-decoration: none;
+    color: #fff;
+    background: #ec5da0aa;
+    border-radius: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: 0.4s;
+    padding: 32px 34px;
+    text-align: center;
+  }
+
+  section {
+    margin: 0;
+    position: absolute;
+    top: 15%;
+    display: block;
+    margin-left: 20%;
+  }
+  article {
+    padding-top: 41px;
+    padding-bottom: 30px;
+  }
+  article a:hover{
+    background-color: #ff0278aa;
+    font-weight: 700;
+  }
 }
+/*.............responsive desktop................*/
+@media screen and (min-width: 600px) {
+  h1 {
+    color: #fff;
+    border-bottom: 1px dotted #fff;
+    text-align: center;
+    padding: 10px;
+    text-transform: uppercase;
+  }
+  article a {
+    text-decoration: none;
+    color: #fff;
+    background: #ec5da0aa;
+    border-radius: 25px;
+    font-size: 20px;
+    text-transform: uppercase;
+    transition: 0.4s;
+    padding: 32px 34px;
+    text-align: center;
+    font-weight: 900;
+  }
+
+  section {
+    margin: 0;
+    position: absolute;
+    top: 25%;
+    display: block;
+  }
+  article {
+    padding: 40px;
+    margin: 0;
+  }
+  article a:hover{
+    background-color: #ff0278aa;
+  }
+}
+
 
 img {
   width: 80px;
@@ -18,37 +89,22 @@ img {
   display: block;
 }
 
-a {  text-decoration: none;
-    color: #fff;
-    background: #ec5da0aa;
-    padding: 12px 24px;
-    display: inline-block;
-    border-radius: 25px;
-    font-size: 14px;
-    text-transform: uppercase;
-    transition: 0.4s;
 
-}
 /* Overview puppys aanbod*/
 
-.puppyContainer{
-display: flex;
-flex-direction: row;
+.puppyContainer {
+  display: flex;
+  flex-direction: row;
 }
 
-article img{
-    width: 250px;
-    padding: 10px;
+article img {
+  width: 250px;
+  padding: 10px;
 }
 
 /*Puppy toevoegen*/
 
-h1 {
-  color: #fff;
-  border-bottom: 1px solid #fff;
-  text-align: center;
-  padding: 0;
-}
+
 
 legend {
   display: none;
