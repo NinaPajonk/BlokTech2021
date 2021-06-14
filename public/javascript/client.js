@@ -1,21 +1,25 @@
-const inProfielfoto= document.getElementById("profielfoto");
-const previewConatiner = document.getElementById("imagePreview");
-const previewImage = previewConatiner.querySelector(".image-preview__image");
-const previewDefaultText = previewConatiner.querySelector(".image-preview__default-text");
-
-inProfielfoto.addEventListener("change", function(){
-    const file = this.files[0];
-
-if (file){
-    const reader = new FileReader();
-previewDefaultText.style.display = "none";
-previewImage.style.display = "none";
-reader.addEventListener("load", function(){
-    console.log(this);
-    previewImage.setAttribute("src", this.result);
-
-});
-reader.readAsDataURL(file);
+const text = document.querySelector(".fancy");
+const strText = text.textContent;
+const splitText = strText.split("");
+text.textContent = "";
+for (let i = 0; i < splitText.length; i++) {
+    text.innerHTML += "<span>" + splitText[i] + "</span>";
 }
 
-});
+let char = 0;
+let timer = setInterval(onTick, 50);
+
+function onTick(){
+    const span = text.querySelectorAll('span')[char];
+    span.classList.add('fade');
+    char++;
+
+    if(char === splitText.length){
+
+    
+
+    complete();
+    return;
+}}
+ 
+/* Text Animation Tutorial bron: https://www.youtube.com/watch?v=GUEB9FogoP8 */
