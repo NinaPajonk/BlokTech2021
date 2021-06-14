@@ -10,28 +10,28 @@
 <body>
     <header>
         <nav>
-            <a href="#"> Terug</a>
+            <a href="/"> Terug</a>
         </nav>
     </header>
 
     <main class="containerForm">
 
         <h1> Puppy toevoegen </h1>
-        <img src="images/dog.svg" alt="doglogo">
+        <img class="dogLogo" src="images/dog.svg" alt="dogLogo">
 
         <form id="addForm" action="/add" method="POST" enctype="multipart/form-data">
 
             <fieldset>
                 <legend> Wat is de naam van je puppy?</legend>
                 <label for="naam"> Wat is de naam van je puppy?
-                    <input type="text" name="naam"  pattern="[A-zÀ-ž- ]+"  placeholder="Danny" title="gebruik geen symbolen en/of cijfers"  required>
+                    <input type="text" id="naam" name="naam"  pattern="[A-zÀ-ž- ]+"  placeholder="Danny" title="gebruik geen symbolen en/of cijfers"  required>
                 </label>
 
             </fieldset>
 
             <fieldset>
                 <legend>Wat voor ras is je puppy?</legend>
-                <p> Kies een ras: </p>
+                <label for="ras">Kies een ras: 
                 <select for="ras" id="ras" name="ras">
                     <option value="labradoodle">Australische labradoodle</option>
                     <option value="beagle">Beagle</option>
@@ -51,20 +51,22 @@
                     <option value="Toypoedel">Toypoedel</option>
                     <option value="Yorkshireterrier">Yorkshireterrier</option>
                 </select>
+            </label>
             </fieldset>
 
             <fieldset>
                 <legend>Geslacht</legend>
-                <p> Geslacht:</p>
+                <label for="gender">Geslacht: 
                 <input type="radio" id="gender" name="gender" value="reutje" required> 
                 <label for="gender">Reutje</label>
                 <input type="radio" id="gender" name="gender" value="teefje">
                 <label for="gender">Teefje</label>
+            </label>
             </fieldset>
 
             <fieldset>
                 <legend>Kleur</legend>
-                <p>Kleur:</p>
+                <label for="Kleur">Kleur: 
                 <input type="radio" id="Kleur" name="kleur" value="Rood" required>
                 <label for="Kleur">Rood</label>
                 <input type="radio" id="Kleur" name="kleur" value="Zwart">
@@ -75,6 +77,7 @@
                 <label for="Kleur">Grijs</label>
                 <input type="radio" id="Kleur" name="kleur" value="Bruin">
                 <label for="Kleur">Bruin </label>
+            </label>
             </fieldset>
 
             <fieldset>
@@ -85,14 +88,17 @@
 
             <fieldset>
                 <legend>Geboorte datum</legend>
-                <label for="birthdate">Geboren op:</label>
+                <label for="birthdate">Geboren op:
                 <input type="date" name="geboortedatum" required>
+            </label>
             </fieldset>
 
-            <fieldset>
+            <fieldset class="image-preview" id="imagePreview">
                 <legend> Profiel foto puppy</legend>
                 <label for="profielfoto" name="profielfoto">upload een foto:</label>
-                <input type="file" name="profielfoto" title="het uploaden van een foto is verplicht" required>
+                <input type="file" name="profielfoto" id="profielfoto" title="het uploaden van een foto is verplicht" required>
+                <img src="" alt="Afbeelding Voorbeeld" class="image-preview__image">
+                <span class="image-preview__default-text">Afbeelding Voorbeeld</span>
             </fieldset>
  
 

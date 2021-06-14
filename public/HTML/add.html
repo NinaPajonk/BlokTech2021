@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/style.css">
     <title>Puppy toevoegen</title>
 </head>
 
@@ -18,9 +20,17 @@
     <main class="containerForm">
 
         <h1> Puppy toevoegen </h1>
-        <img src="images/dog.svg" alt="doglogo">
+        <img class="dogLogo" src="/public/images/dog.svg" alt="doglogo">
 
-        <form id="addForm" action="/add" method="POST">
+        <form id="addForm" action="/add" method="POST" enctype="multipart/form-data">
+
+            <fieldset>
+                <legend> Wat is de naam van je puppy?</legend>
+                <label for="naam"> Wat is de naam van je puppy?
+                    <input type="text" name="naam"  pattern="[A-zÀ-ž- ]+"  placeholder="Danny" title="gebruik geen symbolen en/of cijfers"  required>
+                </label>
+
+            </fieldset>
 
             <fieldset>
                 <legend>Wat voor ras is je puppy?</legend>
@@ -46,57 +56,57 @@
                 </select>
             </fieldset>
 
-            <fieldset class="addForm">
+            <fieldset>
                 <legend>Geslacht</legend>
                 <p> Geslacht:</p>
-                <input type="radio" id="gender" name="gender" value="reutje">
+                <input type="radio" id="gender" name="gender" value="reutje" required> 
                 <label for="gender">Reutje</label>
                 <input type="radio" id="gender" name="gender" value="teefje">
                 <label for="gender">Teefje</label>
             </fieldset>
 
-            <fieldset class="addForm">
+            <fieldset>
                 <legend>Kleur</legend>
                 <p>Kleur:</p>
-                <input type="radio" id="Kleur" name="Kleur" value="Rood">
+                <input type="radio" id="Kleur" name="kleur" value="Rood" required>
                 <label for="Kleur">Rood</label>
-                <input type="radio" id="Kleur" name="Kleur" value="Zwart">
+                <input type="radio" id="Kleur" name="kleur" value="Zwart">
                 <label for="Kleur">Zwart</label>
-                <input type="radio" id="Kleur" name="Kleur" value="Wit">
+                <input type="radio" id="Kleur" name="kleur" value="Wit">
                 <label for="Kleur">Wit</label>
-                <input type="radio" id="Kleur" name="Kleur" value="Grijs">
+                <input type="radio" id="Kleur" name="kleur" value="Grijs">
                 <label for="Kleur">Grijs</label>
-                <input type="radio" id="Kleur" name="Kleur" value="Bruin">
+                <input type="radio" id="Kleur" name="kleur" value="Bruin">
                 <label for="Kleur">Bruin </label>
-
             </fieldset>
 
-            <fieldset class="addForm">
+            <fieldset>
                 <legend>Prijs puppy</legend>
                 <label for="puppyprijs">Vraag prijs: €</label>
-                <input type="text">
-
+                <input type="text" name="prijs" placeholder="00,00" title="gebruik alleen cijfers" required>
             </fieldset>
-            <fieldset class="addForm">
+
+            <fieldset>
                 <legend>Geboorte datum</legend>
                 <label for="birthdate">Geboren op:</label>
-                <input type="date">
-
+                <input type="date" name="geboortedatum" required>
             </fieldset>
+
             <fieldset>
-          <!-- Upload foto --> 
+                <legend> Profiel foto puppy</legend>
+                <label for="profielfoto" name="profielfoto">upload een foto:</label>
+                <input type="file" name="profielfoto" title="het uploaden van een foto is verplicht" required>
             </fieldset>
+ 
 
-            </fieldset>
-            <div class="addForm">
+
+            <div class="formControl">
                 <input type="submit" value="toevoegen" form="addForm">
 
             </div>
         </form>
     </main>
-    <footer>
-        <script src="/server.js"></script>
-    </footer>
+
 </body>
 
 </html>

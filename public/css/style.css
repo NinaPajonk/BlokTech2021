@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   min-height: 100vh;
   background-image: linear-gradient(115deg, #3ca0be, #fff);
 }
@@ -21,11 +21,12 @@ body {
     color: #fff;
     background: #ec5da0aa;
     border-radius: 25px;
-    font-size: 16px;
+    font-size: 12px;
     text-transform: uppercase;
     transition: 0.4s;
-    padding: 32px 34px;
+    padding: 20px 25px;
     text-align: center;
+    display: inline;
   }
 
   section {
@@ -34,25 +35,155 @@ body {
     top: 15%;
     display: block;
     margin-left: 20%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.267);
   }
   article {
-    padding-top: 41px;
+    padding-top: 20px;
     padding-bottom: 30px;
   }
-  article a:hover{
-    background-color: #ff0278aa;
-    font-weight: 700;
+  article a:hover {
+    transition-delay: 0.2s;
+    background-image: linear-gradient(
+      90deg,
+      #00c0ff 0%,
+      #ffcf00 49%,
+      #fc4f4f 80%,
+      #00c0ff 100%
+    );
   }
-}
+  #home {
+    width: 350px;
+    height: 400px;
+    color: #000;
+    font-weight: 900;
+    padding: 60px 30px;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px rgb(77, 77, 77);
+    border-radius: 15px;
+    margin-top: 30px;
+  }
+  img {
+    width: 500px;
+  }
+  .dogLogo {
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+   /* Puppy filteren */
+  .containerForm2 {
+    width: 350px;
+    height: 550px;
+    color: #000;
+    padding: 30px ;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px rgb(77, 77, 77);
+    border-radius: 15px;
+    margin-left: 10%;
+    margin-top: 30px;
+
+  }
+  /* Puppy toevoegen*/
+  .containerForm {
+    width: 350px;
+    height: 700px;
+    color: #000;
+    padding: 30px ;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px rgb(77, 77, 77);
+    border-radius: 15px;
+    margin-left: 10%;
+    margin-top: 30px;
+
+  }
+  .formControl {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+  }
+  
+  .formControl label {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  
+  .formControl input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    font-size: 16px;
+  }
+  
+  .formControl [type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ec5da0aa;
+    border-radius: 10px;
+    color: #fff;
+
+  }
+  .formControl [type="submit"]:hover {
+    cursor: pointer;
+    font-weight: 900;
+    transition-delay: 0.2s;
+    background-image: linear-gradient(
+      90deg,
+      #00c0ff 0%,
+      #ffcf00 49%,
+      #fc4f4f 80%,
+      #00c0ff 100%
+    );
+  }
+  p{
+  font-size: 12px;
+  font-style: italic;
+  margin: 0;
+  }
+
+  a{
+    text-decoration: none;
+    color: #fff;
+    background: #ec5da0aa;
+    border-radius: 25px;
+    font-size: 10px;
+    text-transform: uppercase;
+    padding: 5px 8px;
+    text-align: center;
+   
+  }
+  a:hover{
+    font-weight: 900;
+    transition-delay: 0.2s;
+    background-image: linear-gradient(
+      90deg,
+      #00c0ff 0%,
+      #ffcf00 49%,
+      #fc4f4f 80%,
+      #00c0ff 100%
+    );
+
+  }
+  }
+
 /*.............responsive desktop................*/
+
 @media screen and (min-width: 600px) {
   h1 {
     color: #fff;
     border-bottom: 1px dotted #fff;
     text-align: center;
-    padding: 10px;
+    padding-top: 10px;
     text-transform: uppercase;
   }
+
   article a {
     text-decoration: none;
     color: #fff;
@@ -71,24 +202,146 @@ body {
     position: absolute;
     top: 25%;
     display: block;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.267);
+
   }
   article {
     padding: 40px;
     margin: 0;
   }
-  article a:hover{
-    background-color: #ff0278aa;
+  article a:hover {
+    transition-delay: 0.2s;
+    background-image: linear-gradient(
+      90deg,
+      #00c0ff 0%,
+      #ffcf00 49%,
+      #fc4f4f 80%,
+      #00c0ff 100%
+    );
+  }
+  #home {
+    width: 450px;
+    height: 450px;
+    color: #000;
+    padding: 60px 30px;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px rgb(77, 77, 77);
+    border-radius: 15px;
+    margin-left: 35%;
+    margin-top: 5%;
+  }
+  img {
+    padding: 10px;
+    width: 700px;
+  }
+  .dogLogo {
+    width: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+   /* Puppy filteren */
+  .containerForm2 {
+    width: 450px;
+    height: 600px;
+    color: #000;
+    padding: 30px ;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px rgb(77, 77, 77);
+    border-radius: 15px;
+    margin-left: 35%;
+    margin-top: 30px;
+
+  }
+  /* Puppy toevoegen*/
+  .containerForm {
+    width: 450px;
+    height: 650px;
+    color: #000;
+    padding: 30px ;
+    box-sizing: border-box;
+    box-shadow: 8px 8px 50px rgb(77, 77, 77);
+    border-radius: 15px;
+    margin-left: 35%;
+    margin-top: 30px;
+
+  }
+  .formControl {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+  }
+  
+  .formControl label {
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  
+  .formControl input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    font-size: 16px;
+  }
+  
+  .formControl [type="submit"] {
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: #ec5da0aa;
+    border-radius: 10px;
+    color: #fff;
+    margin-top: 20px;
+
+  }
+  .formControl [type="submit"]:hover {
+    cursor: pointer;
+    font-weight: 900;
+    transition-delay: 0.2s;
+    background-image: linear-gradient(
+      90deg,
+      #00c0ff 0%,
+      #ffcf00 49%,
+      #fc4f4f 80%,
+      #00c0ff 100%
+    );
+  }
+  p{
+  font-size: 12px;
+  font-style: italic;
+  margin: 0;
+  }
+
+  a{
+    text-decoration: none;
+    color: #fff;
+    background: #ec5da0aa;
+    border-radius: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 15px 18px;
+    text-align: center;
+   
+  }
+  a:hover{
+    font-weight: 900;
+    transition-delay: 0.2s;
+    background-image: linear-gradient(
+      90deg,
+      #00c0ff 0%,
+      #ffcf00 49%,
+      #fc4f4f 80%,
+      #00c0ff 100%
+    );
+
   }
 }
-
-
-img {
-  width: 80px;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
 
 /* Overview puppys aanbod*/
 
@@ -104,8 +357,6 @@ article img {
 
 /*Puppy toevoegen*/
 
-
-
 legend {
   display: none;
   border: none;
@@ -115,58 +366,7 @@ fieldset {
   border: none;
 }
 
-.containerForm {
-  width: 400px;
-  height: 720px;
-  color: #000;
-  top: 55%;
-  left: 50%;
-  padding: 60px 30px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  box-sizing: border-box;
-  box-shadow: 8px 8px 50px rgb(77, 77, 77);
-  border-radius: 15px;
-}
-.formControl {
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  position: relative;
-}
 
-.formControl label {
-  display: inline-block;
-  margin-bottom: 8px;
-}
-
-.formControl input {
-  display: block;
-  width: 100%;
-  height: 40px;
-  border-radius: 4px;
-  border: 2px solid #fff;
-  font-size: 16px;
-}
-
-/* input:invalid {
-    border: 2px dashed red;
-  } */
-
-.formControl [type="submit"] {
-  border: none;
-  outline: none;
-  height: 40px;
-  width: 100%;
-  font-size: 14px;
-  font-weight: 500;
-  background-color: #ec5da0aa;
-  border-radius: 4px;
-  color: #fff;
-}
-.formControl [type="submit"]:hover {
-  cursor: pointer;
-  background-color: #ff07c1aa;
-}
 
 /* 404 PAGE */
 .container {
@@ -179,6 +379,7 @@ fieldset {
 }
 
 .container h2 {
+font-family: "Montserrat", sans-serif;
   font-size: 140px;
   margin: 0;
   font-weight: 900;
@@ -198,6 +399,33 @@ fieldset {
 }
 
 .container a:hover {
-  background: #ff07c1aa;
   font-weight: 900;
+  transition-delay: 0.2s;
+  background-image: linear-gradient(
+    90deg,
+    #00c0ff 0%,
+    #ffcf00 49%,
+    #fc4f4f 80%,
+    #00c0ff 100%
+  );
+}
+
+.image-preview{
+  width: 300px;
+  min-height: 100px;
+  border: 1px solid #fff;
+  margin-top: 15px;
+
+/* standaard text*/
+  display: flex;
+  align-items: center;
+justify-content: center;
+font-weight: bold;
+color: indianred;
+}
+
+.image-preview__image{
+  display: none;
+  width: 100%;
+
 }
