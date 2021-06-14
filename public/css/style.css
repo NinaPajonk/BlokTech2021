@@ -265,6 +265,7 @@ body {
 
   }
   /* Puppy toevoegen*/
+
   .containerForm {
     width: 450px;
     height: 650px;
@@ -429,4 +430,16 @@ span{
 
 span.fade{
   opacity: 1;
+}
+
+.form-group{
+  margin-bottom: 4px;
+}
+
+.error-hint{
+  color:red;
+}
+
+.hidden{
+  display: none;
 }

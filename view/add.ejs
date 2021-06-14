@@ -21,11 +21,12 @@
 
         <form id="addForm" action="/add" method="POST" enctype="multipart/form-data">
 
-            <fieldset>
+            <fieldset class="form-group">
                 <legend> Wat is de naam van je puppy?</legend>
-                <label for="naam"> Wat is de naam van je puppy?
-                    <input type="text" id="naam" name="naam"  pattern="[A-zÀ-ž- ]+"  placeholder="Danny" title="gebruik geen symbolen en/of cijfers"  required>
-                </label>
+                <label for="naam"> Wat is de naam van je puppy?    </label>
+                    <input class="invalid" type="text" id="naam" name="naam"  pattern="[A-zÀ-ž- ]+"  placeholder="Danny" title="gebruik geen symbolen en/of cijfers"  required>
+                    <div class="error-hint hidden">Je naam is verplicht </div>
+            
 
             </fieldset>
 
@@ -83,13 +84,13 @@
             <fieldset>
                 <legend>Prijs puppy</legend>
                 <label for="puppyprijs">Vraag prijs: €</label>
-                <input type="text" name="prijs" placeholder="00,00" title="gebruik alleen cijfers" required>
+                <input type="text" name="prijs" placeholder="00,00" maxlength="6" title="gebruik alleen cijfers" required>
             </fieldset>
 
             <fieldset>
                 <legend>Geboorte datum</legend>
                 <label for="birthdate">Geboren op:
-                <input type="date" name="geboortedatum" required>
+                <input type="date" min="2020-12-01" name="geboortedatum" required>
             </label>
             </fieldset>
 
@@ -97,6 +98,7 @@
                 <legend> Profiel foto puppy</legend>
                 <label for="profielfoto" name="profielfoto">upload een foto:</label>
                 <input type="file" name="profielfoto" id="profielfoto" title="het uploaden van een foto is verplicht" required>
+
             </fieldset>
  
 
