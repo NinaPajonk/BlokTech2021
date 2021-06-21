@@ -19,88 +19,91 @@
         <h1> Puppy toevoegen </h1>
         <img class="dogLogo" src="images/dog.svg" alt="dogLogo">
 
-        <form id="addForm" action="/add" method="POST" enctype="multipart/form-data">
+
+        <form name="toevoeg-form" id="addForm" action="/add" method="POST" enctype="multipart/form-data">
 
             <fieldset class="form-group">
                 <legend> Wat is de naam van je puppy?</legend>
-                <label for="naam"> Wat is de naam van je puppy?    </label>
-                    <input class="invalid" type="text" id="naam" name="naam"  pattern="[A-zÀ-ž- ]+"  placeholder="Danny" title="gebruik geen symbolen en/of cijfers"  required>
-                    <div class="error-hint hidden">Je naam is verplicht </div>
-            
+                <label for="naam"> Wat is de naam van je puppy? </label>
+                <input class="invalid" type="text" id="naam" name="naam" pattern="[A-zÀ-ž- ]+" placeholder="Danny"
+                    title="gebruik geen symbolen en/of cijfers" required>
+                <div class="error hide">Je naam is verplicht </div>
 
             </fieldset>
 
+
             <fieldset>
                 <legend>Wat voor ras is je puppy?</legend>
-                <label for="ras">Kies een ras: 
-                <select for="ras" id="ras" name="ras">
-                    <option value="labradoodle">Australische labradoodle</option>
-                    <option value="beagle">Beagle</option>
-                    <option value="Chihuahua">Chihuahua</option>
-                    <option value="Chow Chow">Chow Chow</option>
-                    <option value="Dalmatier">Dalmatier</option>
-                    <option value="Duitse Herder">Duitse herder</option>
-                    <option value="Franse Buldog">Franse Buldog</option>
-                    <option value="Jackrussel">Jackrussel</option>
-                    <option value="Keeshond">Keeshond</option>
-                    <option value="Labrador">Labrador</option>
-                    <option value="Mopshond">Mopshond</option>
-                    <option value="Poedel">Poedel</option>
-                    <option value="Pomeriaan">Pomeriaan</option>
-                    <option value="Shiba">Shiba</option>
-                    <option value="Syberische husky">Syberische husky</option>
-                    <option value="Toypoedel">Toypoedel</option>
-                    <option value="Yorkshireterrier">Yorkshireterrier</option>
-                </select>
-            </label>
+                <label for="ras">Kies een ras:
+                    <select for="ras" id="ras" name="ras">
+                        <option value="labradoodle">Australische labradoodle</option>
+                        <option value="beagle">Beagle</option>
+                        <option value="Chihuahua">Chihuahua</option>
+                        <option value="Chow Chow">Chow Chow</option>
+                        <option value="Dalmatier">Dalmatier</option>
+                        <option value="Duitse Herder">Duitse herder</option>
+                        <option value="Franse Buldog">Franse Buldog</option>
+                        <option value="Jackrussel">Jackrussel</option>
+                        <option value="Keeshond">Keeshond</option>
+                        <option value="Labrador">Labrador</option>
+                        <option value="Mopshond">Mopshond</option>
+                        <option value="Poedel">Poedel</option>
+                        <option value="Pomeriaan">Pomeriaan</option>
+                        <option value="Shiba">Shiba</option>
+                        <option value="Syberische husky">Syberische husky</option>
+                        <option value="Toypoedel">Toypoedel</option>
+                        <option value="Yorkshireterrier">Yorkshireterrier</option>
+                    </select>
+                </label>
             </fieldset>
 
             <fieldset>
                 <legend>Geslacht</legend>
-                <label for="gender">Geslacht: 
-                <input type="radio" id="gender" name="gender" value="reutje" required> 
-                <label for="gender">Reutje</label>
-                <input type="radio" id="gender" name="gender" value="teefje">
-                <label for="gender">Teefje</label>
-            </label>
+                <label for="gender">Geslacht:
+                    <input type="radio" id="gender" name="gender" value="reutje" required>
+                    <label for="gender">Reutje</label>
+                    <input type="radio" id="gender" name="gender" value="teefje">
+                    <label for="gender">Teefje</label>
+                </label>
             </fieldset>
 
             <fieldset>
                 <legend>Kleur</legend>
-                <label for="Kleur">Kleur: 
-                <input type="radio" id="Kleur" name="kleur" value="Rood" required>
-                <label for="Kleur">Rood</label>
-                <input type="radio" id="Kleur" name="kleur" value="Zwart">
-                <label for="Kleur">Zwart</label>
-                <input type="radio" id="Kleur" name="kleur" value="Wit">
-                <label for="Kleur">Wit</label>
-                <input type="radio" id="Kleur" name="kleur" value="Grijs">
-                <label for="Kleur">Grijs</label>
-                <input type="radio" id="Kleur" name="kleur" value="Bruin">
-                <label for="Kleur">Bruin </label>
-            </label>
+                <label for="Kleur">Kleur:
+                    <input type="radio" id="Kleur" name="kleur" value="Rood" required>
+                    <label for="Kleur">Rood</label>
+                    <input type="radio" id="Kleur" name="kleur" value="Zwart">
+                    <label for="Kleur">Zwart</label>
+                    <input type="radio" id="Kleur" name="kleur" value="Wit">
+                    <label for="Kleur">Wit</label>
+                    <input type="radio" id="Kleur" name="kleur" value="Grijs">
+                    <label for="Kleur">Grijs</label>
+                    <input type="radio" id="Kleur" name="kleur" value="Bruin">
+                    <label for="Kleur">Bruin </label>
+                </label>
             </fieldset>
 
             <fieldset>
                 <legend>Prijs puppy</legend>
                 <label for="puppyprijs">Vraag prijs: €</label>
-                <input type="text" name="prijs" placeholder="00,00" maxlength="6" title="gebruik alleen cijfers" required>
+                <input type="text" name="prijs" placeholder="00,00" maxlength="6" title="gebruik alleen cijfers"
+                    required>
             </fieldset>
 
             <fieldset>
                 <legend>Geboorte datum</legend>
                 <label for="birthdate">Geboren op:
-                <input type="date" min="2020-12-01" name="geboortedatum" required>
-            </label>
+                    <input type="date" min="2020-12-01" name="geboortedatum" required>
+                </label>
             </fieldset>
 
             <fieldset>
                 <legend> Profiel foto puppy</legend>
                 <label for="profielfoto" name="profielfoto">upload een foto:</label>
-                <input type="file" name="profielfoto" id="profielfoto" title="het uploaden van een foto is verplicht" required>
+                <input type="file" name="profielfoto" id="profielfoto" title="het uploaden van een foto is verplicht"
+                    required>
 
             </fieldset>
- 
 
 
             <div class="formControl">

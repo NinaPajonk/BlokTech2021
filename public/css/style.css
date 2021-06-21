@@ -436,10 +436,11 @@ span.fade{
   margin-bottom: 4px;
 }
 
-.error-hint{
+/* form validtion */
+.error{
   color:red;
 }
 
-.hidden{
+.hide{
   display: none;
 }

@@ -24,22 +24,47 @@ function onTick() {
         timer = null;
     }
 }
-
 /* Text Animation Tutorial bron: https://www.youtube.com/watch?v=GUEB9FogoP8 */
 
-/* Form validation */
-const form = document.querySelector("form");
-const nameInput = document.querySelector(
-    'input[name="naam"]'
-);
+/* Form validation https://www.youtube.com/watch?v=ps0-JAQENXI */
+
+
+const form = document.querySelector("form[name='toevoeg-form']");
+const nameInput = document.querySelector("input[name='naam']");
+
+nameInput.isValid = () => !!nameInput.value;
+
+const inputFields = [nameInput];
+
+
+
+let shouldValidate = false;
+let isFormValid = false;
 
 const validateInputs = () => {
-    if (!nameInput.value) {
-        nameInput.classList.add("invalid");
-        nameInput.nextElementSibling.classList.remove("hidden");
-    }
+    console.log("we are here");
+    if (!shouldValidate) return;
+
+    isFormValid = true;
+    inputFields.forEach((input) => {
+        input.classList.remove("invalid");
+        input.nextElementSibling.classList.add("hide");
+
+        if (!input.isValid()) {
+            input.classList.add("invalid");
+            isFormValid = false;
+            input.nextElementSibling.classList.remove("hide");
+        }
+    });
 };
-form.addEventListener('submit', (e) => {
+
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-validateInputs();
+    shouldValidate = true;
+    validateInputs();
+    if (isFormValid) {
+
+    }
 });
+
+inputFields.forEach((input) => input.addEventListener("input", validateInputs));
