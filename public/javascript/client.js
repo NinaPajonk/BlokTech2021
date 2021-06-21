@@ -36,8 +36,6 @@ nameInput.isValid = () => !!nameInput.value;
 
 const inputFields = [nameInput];
 
-
-
 let shouldValidate = false;
 let isFormValid = false;
 
