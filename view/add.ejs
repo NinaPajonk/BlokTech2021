@@ -25,10 +25,10 @@
             <fieldset class="form-group">
                 <legend> Wat is de naam van je puppy?</legend>
                 <label for="naam"> Wat is de naam van je puppy? </label>
-                <input class="invalid" type="text" id="naam" name="naam" pattern="[A-zÀ-ž- ]+" placeholder="Danny"
+                <input  type="text" id="naam" name="naam" pattern="[A-zÀ-ž- ]+" placeholder="Danny"
                     title="gebruik geen symbolen en/of cijfers" required>
-                <div class="error hide">Je naam is verplicht </div>
-
+                    <div class="error hide">Naam is verplicht</div>
+                    <div class="symbolen">gebruik geen symbolen en/of cijfers</div>
             </fieldset>
 
 
@@ -79,7 +79,7 @@
                     <input type="radio" id="Kleur" name="kleur" value="Grijs">
                     <label for="Kleur">Grijs</label>
                     <input type="radio" id="Kleur" name="kleur" value="Bruin">
-                    <label for="Kleur">Bruin </label>
+                    <label for="Kleur">Bruin</label>
                 </label>
             </fieldset>
 
@@ -88,6 +88,7 @@
                 <label for="puppyprijs">Vraag prijs: €</label>
                 <input type="text" name="prijs" placeholder="00,00" maxlength="6" title="gebruik alleen cijfers"
                     required>
+                    <div class="noPrijs hide">De prijs is verplicht</div>
             </fieldset>
 
             <fieldset>
@@ -102,11 +103,11 @@
                 <label for="profielfoto" name="profielfoto">upload een foto:</label>
                 <input type="file" name="profielfoto" id="profielfoto" title="het uploaden van een foto is verplicht"
                     required>
-
             </fieldset>
 
 
             <div class="formControl">
+    
                 <input type="submit" value="toevoegen" form="addForm">
 
             </div>
